@@ -1,0 +1,41 @@
+{
+  "name": "@mimb/auto-reload",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Angular recovery overlay for stale hashed chunks after a static deployment",
+  "keywords": [
+    "angular",
+    "chunkloaderror",
+    "dynamic-import",
+    "deployment",
+    "auto-reload"
+  ],
+  "license": "MIT",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/fesm2022/mimb-auto-reload.mjs",
+  "module": "./dist/fesm2022/mimb-auto-reload.mjs",
+  "typings": "./dist/types/mimb-auto-reload.d.ts",
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json -c tsconfig.lib.json && node scripts/finalize-dist-package.mjs",
+    "test": "vitest run",
+    "check": "npm run test && npm run build",
+    "prepare": "npm run build"
+  },
+  "peerDependencies": {
+    "@angular/core": ">=17 <22"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/compiler": "^21.2.0",
+    "@angular/compiler-cli": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "ng-packagr": "^21.0.0",
+    "typescript": "~5.9.2",
+    "vitest": "^4.1.9"
+  }
+}

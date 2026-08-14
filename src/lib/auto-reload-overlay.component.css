@@ -1,0 +1,91 @@
+:host {
+  --auto-reload-background: #fff;
+  --auto-reload-color: #111;
+  --auto-reload-muted-color: #57606a;
+  --auto-reload-accent: #6364ff;
+  --auto-reload-border-color: #d0d7de;
+  --auto-reload-z-index: 2147483647;
+}
+
+.auto-reload-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--auto-reload-z-index);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px;
+  text-align: center;
+  background: var(--auto-reload-background);
+  color: var(--auto-reload-color);
+}
+
+.auto-reload-overlay h1,
+.auto-reload-overlay p {
+  margin: 0;
+}
+
+.auto-reload-overlay h1 {
+  font-size: 1.25rem;
+}
+
+.auto-reload-overlay p {
+  max-width: 28rem;
+  color: var(--auto-reload-muted-color);
+}
+
+.auto-reload-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--auto-reload-border-color);
+  border-top-color: var(--auto-reload-accent);
+  border-radius: 50%;
+  animation: auto-reload-spin 0.8s linear infinite;
+}
+
+.auto-reload-warning {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.auto-reload-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.auto-reload-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border: 1px solid var(--auto-reload-border-color);
+  border-radius: 999px;
+  background: var(--auto-reload-accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auto-reload-actions button:hover {
+  filter: brightness(1.05);
+}
+
+@keyframes auto-reload-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auto-reload-spinner {
+    animation-duration: 2s;
+  }
+}
+
